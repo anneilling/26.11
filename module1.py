@@ -33,7 +33,7 @@ def kutsutamine(i,p):
     try:
         name=input("Nimi: ")
         a=i.index(name)
-        t= rue
+        t=True
     except:
         print("Nimi puudub")
         t=False
@@ -41,3 +41,30 @@ def kutsutamine(i,p):
             p.pop(a)
             i.pop(a)
             return i,p
+
+def suurim_palk(i:list,p.list):
+    #otsine suurim palk ja näitame kellel ta on
+    #:rtype float,str;
+    suurim=max(p)
+    b=p,index(suurim)
+    kellel=i[b]
+    return suurim,kellel
+
+def keskmine(i,p):
+    summa=0
+    for palk in p:
+        summa+=palk
+    kesk=summa/len(p)
+    print(kesk)
+    vahe=0
+    if 0<=p.index(kesk)<len(p)-1:
+        kesk=i[p.index(kesk)]
+        return kesk
+    else:
+        kesk="Puudub"
+        return kesk
+
+
+
+
+
