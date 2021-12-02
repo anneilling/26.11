@@ -1,4 +1,3 @@
-
 from module1 import *
 from keyboard import *
 palgad=loe_failist_listisse("palgad.txt")
