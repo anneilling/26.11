@@ -11,7 +11,7 @@ while 1:
         print("Keskmine palk on ",summa)
 
     elif read_key()=="2":
-        suurim,kellel=suurim(inimesed,palgad)
+        suurim,kellel=suurem(inimesed,palgad)
         print("Maksimaalne palk=> ", suurim, " Kellel=> ",kellel)
    
     elif read_key()=="3":

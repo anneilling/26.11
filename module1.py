@@ -2,6 +2,7 @@
 from random import *
 def loe_failist_listisse(file:str)->list:
     """Loeme tekst failist ja salvesta järjendisse
+    :rtype: list:
     """
     file=open(file,"r")
     list_=[]
@@ -10,35 +11,44 @@ def loe_failist_listisse(file:str)->list:
     file.close()
     return list_
 
-def otsing_nimi_jargi(inimesed:list,palk:list): #otsime inimest nimi järgi
-    nimi=input("Keda otsime?")
-    for inimene in inimesed:
-        if inimene.upper()==nimi.upper():
-            n=inimesed.count(nimi)
-            print("Leitud",n, "korda")
-            b=0
-            t=[]
-            for i in range(n):
-                k=inimesed.index(nimi,b)
-                palk=palk[k]
-                b+=k+1
-                t.append(nimi+str(palk))
-                print(nimi, palk)
-        else:
-            t="Ei ole nimi kirjas"
-    return t
+def otsing_nimi_jargi(inimesed:list,palk:list):
+   """otsime inimest nimi järgi
+   :rtype: str:
+   """
+   nimi=input("Keda otsime?")
+
+   for inimene in inimesed:
+
+       if inimene.upper()==nimi.upper():
+
+           n=inimesed.count(nimi)
+           print("Leitud",n, "korda")
+           b=0
+           t=[]
+           for i in range(n):
+               k=inimesed.index(nimi,b)
+               palk=palk[k]
+               b+=k+1
+               t.append(nimi+str(palk))
+               print(nimi, palk)
+       else:
+           t="Ei ole nimi kirjas"
+           return t
 
 
 def lisa(palk:list,inimesed:list): #i-inimeste list, p-palgade list
-    """ Lisab inimesi ja nende palga
-    """
+    #lisa inimesi ja palga
+    #:rtype:str,str:
     a=input("Sissesta nimi ")
     inimesed.append(a)
     b=int(input("Sisesta palk "))
     palk.append(b)
     return palk,inimesed
 
-def kutsutamine(i,p):
+def kutsutamine(i:list,p:list):
+    """infode kustutamine
+    :rtype:str,str:
+    """
     try:
         name=input("Nimi: ")
         a=i.index(name)
@@ -51,14 +61,17 @@ def kutsutamine(i,p):
             i.pop(a)
             return i,p
 
-def suurim(i:list,p:list):
-
-    #otsine suurim palk ja näitame kellel ta on
-    #:rtype float,str;
-    suurim=max(p)
-    b=p.index(suurim)
+def suurem(i:list,p:list):
+    """ otsime suurim palk
+    :rtype: str,str:
+    """
+    p1=[]
+    for e in p:
+        p1.append(int(e))
+    suurim=max(p1)
+    b=p1.index(suurim)
     kellel=i[b]
-    return suurim,kellel
+    return suurim , kellel
 
 def keskmine(i:list,p:list):
     """Keskmise palka leidmine. Kui ta on loetelus, siis näiame kes saab seda kätte
